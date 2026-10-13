@@ -1,10 +1,14 @@
 # Verification — 13 October 2026
 
+Receipt printing passes six unit tests, all eight Playwright browser tests, and the production build including TypeScript. The print action calls `window.print()` without changing application state. The print lifecycle test substitutes the browser's `beforeprint`/`afterprint` events and undefined return (shared by Print and Cancel), verifies an identical receipt after repeated calls, checks the completed sale remains locked, and confirms the next sale receives TXN-0002. It does not automate a physical printer or the operating system's native print dialog.
+
+The print-media test verifies only the receipt is visible, with every required field, no buttons or other POS content, and no clipping from screen scroll/sticky containers. Actual Chromium PDF exports preserve receipt content when returning to screen media. A4 and 80mm-wide PDFs containing all six products were rendered with Poppler and visually inspected: both fit on one page, including the footer, with no missing or clipped content. The receipt remains in normal document flow so longer content can paginate; item rows and totals stay together where possible.
+
 The readability refactor passed the production build (including TypeScript) and all six existing transaction tests. In-app browser checks confirmed 18px body/buttons, 24–32px headings, 20px cash input, 32px totals/change, and 48–57px controls. Layouts at 320, 390, 834, 1280, 1440, and 1920px had no horizontal overflow or visible text below 18px. The ₱138.00 order still completed with ₱62.00 change from ₱200.00, displayed 32px receipt totals/change, and reset to ₱0.00 through New Transaction. Product data, transaction helpers, and state transitions were not modified. The updated desktop screenshot is `output/pos-readability-preview.jpg`.
 
 Passed: six unit tests for money calculations, all payment rejection messages, decimal/exponent payment conversion, quantities, editing, receipt snapshots, duplicate confirmation, and reference sequence/reset behavior. TypeScript passes. The production build succeeds.
 
-The standalone Playwright runner could not launch Chromium on this Windows host (`spawn UNKNOWN`). The browser test suite remains available under `tests/ui/` for a host that supports Chromium subprocesses. Interactive verification was performed instead through the Codex in-app browser.
+The standalone Chromium headless runner now works on this host. All eight browser tests under `tests/ui/` pass, covering the original POS flow and the two new print checks. Earlier interactive checks through the Codex in-app browser are recorded below.
 
 Browser checks passed:
 

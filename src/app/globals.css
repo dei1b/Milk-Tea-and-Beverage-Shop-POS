@@ -115,6 +115,98 @@
     calc(10% + var(--photo-row) * 80%);
 }
 
+@media print {
+  @page {
+    size: auto;
+    margin: 12mm;
+  }
+
+  /* Keep the existing snapshot and its ancestor path; remove every other branch.
+     display:none avoids the blank pages that visibility:hidden can leave behind. */
+  body > :not(:has(.receipt-paper)),
+  body :has(.receipt-paper) > :not(.receipt-paper):not(:has(.receipt-paper)) {
+    display: none !important;
+  }
+
+  /* Flatten the screen's grid, sticky panel and scroll constraints so the
+     receipt can flow across as many printed pages as it needs. */
+  html,
+  body,
+  body :has(.receipt-paper) {
+    display: block !important;
+    position: static !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: white !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  .receipt-paper {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 160mm !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+    font-size: 13.5pt;
+    line-height: 1.45;
+    break-inside: auto;
+    orphans: 3;
+    widows: 3;
+  }
+
+  .receipt-paper * {
+    color: black !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+    word-break: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .receipt-paper .receipt-shop-name {
+    font-size: 21pt !important;
+  }
+
+  .receipt-paper .money-total {
+    font-size: 24pt !important;
+  }
+
+  .receipt-paper li {
+    margin-block: 0 !important;
+  }
+
+  .receipt-paper li:not(:last-child) {
+    margin-bottom: 3mm !important;
+  }
+
+  .receipt-header,
+  .receipt-paper li,
+  .receipt-totals {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .receipt-paper button,
+  .receipt-paper input {
+    display: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

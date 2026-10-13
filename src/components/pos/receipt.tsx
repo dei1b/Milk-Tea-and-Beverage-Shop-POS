@@ -1,4 +1,4 @@
-import { Check, RotateCcw } from "lucide-react";
+import { Check, Printer, RotateCcw } from "lucide-react";
 import { formatMoney } from "@/lib/transactions";
 import type { CompletedTransaction } from "@/types/pos";
 
@@ -33,8 +33,8 @@ export function Receipt({
         aria-label="Digital receipt"
         className="receipt-paper rounded-lg border border-line p-4"
       >
-        <div className="border-b border-dashed border-slate-300 pb-4 text-center">
-          <p className="text-[28px] font-bold tracking-tight">
+        <div className="receipt-header border-b border-dashed border-slate-300 pb-4 text-center">
+          <p className="receipt-shop-name text-[28px] font-bold tracking-tight">
             steep & sip<span className="text-success">.</span>
           </p>
           <p className="mt-1 text-lg text-muted">
@@ -58,7 +58,7 @@ export function Receipt({
             </li>
           ))}
         </ul>
-        <dl className="space-y-4 pt-5 text-lg">
+        <dl className="receipt-totals space-y-4 pt-5 text-lg">
           <div className="flex flex-wrap items-center justify-between gap-3 font-bold">
             <dt>Total</dt>
             <dd className="money-total">{formatMoney(transaction.total)}</dd>
@@ -76,8 +76,23 @@ export function Receipt({
           Thanks for stopping by. Sip happy!
         </p>
       </section>
-      <div className="mt-auto pt-5">
-        <button className="primary-button" onClick={onNew}>
+      <div className="mt-auto space-y-4 pt-5 print:hidden">
+        <button
+          type="button"
+          className="flex min-h-14 w-full items-center justify-center gap-3 rounded-md border border-slate-400 bg-white px-5 py-3.5 text-lg font-semibold leading-normal text-navy hover:bg-workspace"
+          onClick={() => window.print()}
+          aria-describedby="receipt-print-hint"
+        >
+          <Printer size={20} />
+          Print Receipt / Save as PDF
+        </button>
+        <p
+          id="receipt-print-hint"
+          className="text-lg leading-relaxed text-muted"
+        >
+          Choose a printer or Save as PDF in the print dialog.
+        </p>
+        <button type="button" className="primary-button" onClick={onNew}>
           <RotateCcw size={20} />
           New Transaction
         </button>
