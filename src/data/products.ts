@@ -1,0 +1,58 @@
+import type { Product } from "../types/pos";
+
+export const products: Product[] = [
+  {
+    id: "classic",
+    name: "Classic Milk Tea (Regular)",
+    shortName: "Classic Milk Tea",
+    price: 5900,
+    category: "Milk tea",
+    description: "The familiar, creamy favorite.",
+    imageIndex: 0,
+  },
+  {
+    id: "wintermelon",
+    name: "Wintermelon Milk Tea (Regular)",
+    shortName: "Wintermelon Milk Tea",
+    price: 6500,
+    category: "Milk tea",
+    description: "Mellow sweetness, smooth finish.",
+    imageIndex: 1,
+  },
+  {
+    id: "taro",
+    name: "Taro Milk Tea (Regular)",
+    shortName: "Taro Milk Tea",
+    price: 6500,
+    category: "Milk tea",
+    description: "Earthy taro with a creamy swirl.",
+    imageIndex: 2,
+  },
+  {
+    id: "lychee",
+    name: "Fruit Tea — Lychee (Regular)",
+    shortName: "Fruit Tea — Lychee",
+    price: 5500,
+    category: "Fruit tea",
+    description: "Light, fruity, and refreshing.",
+    imageIndex: 3,
+  },
+  {
+    id: "brown-sugar",
+    name: "Brown Sugar Milk Tea (Regular)",
+    shortName: "Brown Sugar Milk Tea",
+    price: 6900,
+    category: "Milk tea",
+    description: "Rich brown sugar, fresh milk.",
+    imageIndex: 4,
+  },
+  {
+    id: "water",
+    name: "Bottled Water",
+    shortName: "Bottled Water",
+    price: 2000,
+    category: "Water",
+    description: "A little refresh for your day.",
+    imageIndex: 5,
+  },
+];

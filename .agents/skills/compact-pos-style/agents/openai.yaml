@@ -1,0 +1,4 @@
+interface:
+  display_name: "Compact POS Style"
+  short_description: "Compact dashboards with photo cards and navy controls"
+  default_prompt: "Use $compact-pos-style to build a web interface in the saved reference style."

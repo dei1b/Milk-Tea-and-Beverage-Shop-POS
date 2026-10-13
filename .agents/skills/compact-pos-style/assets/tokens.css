@@ -1,0 +1,54 @@
+/* Starting values inferred from the reference; adapt to the host project. */
+.compact-pos {
+  --pos-bg: #f7f9fa;
+  --pos-surface: #ffffff;
+  --pos-primary: #1d2b39;
+  --pos-text: #22272d;
+  --pos-muted: #66727d;
+  --pos-border: #e8ecef;
+  --pos-hover: #f0f3f5;
+  --pos-success: #1aaf77;
+  --pos-error: #d94848;
+  --pos-disabled-bg: #cdd1d4;
+  --pos-disabled-text: #47515a;
+  --pos-focus: #3973a5;
+  --pos-space-1: 4px;
+  --pos-space-2: 8px;
+  --pos-space-3: 12px;
+  --pos-space-4: 16px;
+  --pos-space-6: 24px;
+  --pos-radius-control: 6px;
+  --pos-radius-card: 8px;
+  --pos-radius-panel: 10px;
+  --pos-control-height: 36px;
+  --pos-rail-width: 152px;
+  --pos-summary-width: 300px;
+  --pos-font: Inter, ui-sans-serif, system-ui, sans-serif;
+  --pos-font-small: 12px;
+  --pos-font-body: 14px;
+  --pos-font-section: 16px;
+  color: var(--pos-text);
+  background: var(--pos-bg);
+  font-family: var(--pos-font);
+  font-size: var(--pos-font-body);
+  line-height: 1.4;
+}
+
+.compact-pos :where(button, input, select, textarea) {
+  font: inherit;
+}
+
+.compact-pos :where(button, a, input, select, textarea):focus-visible {
+  outline: 2px solid var(--pos-focus);
+  outline-offset: 2px;
+}
+
+.compact-pos .pos-number {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (pointer: coarse) {
+  .compact-pos {
+    --pos-control-height: 44px;
+  }
+}
