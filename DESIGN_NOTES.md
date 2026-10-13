@@ -1,8 +1,10 @@
 # Design direction
 
-The supplied compact-pos-style reference defines the shell: a narrow white rail, a slim store header, category chips, photo cards, and a persistent summary. The frontend-design skill guides the restrained beverage-specific identity and copy. The interface uses navy #1D2B39, white #FFFFFF, cool gray #F7F9FA, slate #66727D, borders #E5EAEE, and green #16845B. DM Sans is bundled locally; tabular numerals keep monetary values aligned.
+The supplied compact-pos-style reference defines the shell: a white navigation rail, store header, category chips, photo cards, and a persistent summary. The frontend-design skill guides the restrained beverage-specific identity and copy. The interface uses navy #1D2B39, white #FFFFFF, cool gray #F7F9FA, higher-contrast slate #4B5967, borders #D7DEE5, and green #116B49. DM Sans is bundled locally; tabular numerals keep monetary values aligned.
 
-Layout: left-aligned navigation | photo catalog | persistent order summary. Three catalog columns fit the six-product menu on desktop; four at very wide sizes, two on tablet, and the summary stacks beneath the catalog on mobile. The photography supplies the single visual accent. No sales charts or unused admin destinations are included.
+Typography uses Tailwind utilities with an 18px minimum for body text, labels, buttons, cart details, and supporting copy. Product names and section headings use 24px, the page heading uses 32px, the cash input uses 20px, and order/receipt totals and change use 32px. Body line height is 1.625. Controls have at least 48px targets, with 56px inputs and primary actions, increased padding, and visible keyboard focus.
+
+Layout: left-aligned navigation | photo catalog | persistent order summary. A 440–480px summary sits beside the catalog from 1280px. The rail becomes a top navigation below 1440px. The catalog uses one column below 640px, two from 640px, three from 1900px, and four from 2400px. Below 1280px the summary stacks beneath the catalog. These breakpoints give the larger text room to wrap. The photography supplies the single visual accent. No sales charts or unused admin destinations are included.
 
 Imagery is illustrative studio photography generated with the built-in imagegen tool. The single 3 × 2 image atlas is saved at `public/images/drink-catalog.png` and shown by CSS background positioning, with no runtime external request. Product names and prices are always rendered as text.
 

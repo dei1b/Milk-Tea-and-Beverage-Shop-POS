@@ -1,5 +1,7 @@
 # Verification — 13 October 2026
 
+The readability refactor passed the production build (including TypeScript) and all six existing transaction tests. In-app browser checks confirmed 18px body/buttons, 24–32px headings, 20px cash input, 32px totals/change, and 48–57px controls. Layouts at 320, 390, 834, 1280, 1440, and 1920px had no horizontal overflow or visible text below 18px. The ₱138.00 order still completed with ₱62.00 change from ₱200.00, displayed 32px receipt totals/change, and reset to ₱0.00 through New Transaction. Product data, transaction helpers, and state transitions were not modified. The updated desktop screenshot is `output/pos-readability-preview.jpg`.
+
 Passed: six unit tests for money calculations, all payment rejection messages, decimal/exponent payment conversion, quantities, editing, receipt snapshots, duplicate confirmation, and reference sequence/reset behavior. TypeScript passes. The production build succeeds.
 
 The standalone Playwright runner could not launch Chromium on this Windows host (`spawn UNKNOWN`). The browser test suite remains available under `tests/ui/` for a host that supports Chromium subprocesses. Interactive verification was performed instead through the Codex in-app browser.

@@ -30,13 +30,13 @@ export function PaymentForm({
           input.current?.validity.badInput ?? false,
         );
       }}
-      className="mt-4"
+      className="mt-6"
     >
-      <label htmlFor="cash-amount" className="mb-2 block text-xs font-semibold">
+      <label htmlFor="cash-amount" className="mb-2 block text-lg font-semibold">
         Cash received
       </label>
       <div className="relative">
-        <span className="pointer-events-none absolute left-3 top-3 text-sm text-muted">
+        <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-xl text-muted">
           ₱
         </span>
         <input
@@ -51,13 +51,13 @@ export function PaymentForm({
           aria-invalid={!!error}
           aria-describedby={error ? "payment-error" : "payment-hint"}
           placeholder="0.00"
-          className="h-11 w-full rounded-md border border-line bg-white pl-8 pr-3 text-sm tabular-nums"
+          className="min-h-14 w-full rounded-md border border-slate-400 bg-white py-3 pl-10 pr-4 text-xl tabular-nums placeholder:text-slate-500"
         />
       </div>
-      <p id="payment-hint" className="mt-2 text-xs text-muted">
+      <p id="payment-hint" className="mt-2 text-lg text-muted">
         Enter the cash handed to you by the customer.
       </p>
-      <div className="mt-3 flex gap-2">
+      <div className="mt-4 flex flex-wrap gap-3">
         <button
           type="button"
           onClick={() => onChange((total / 100).toFixed(2))}
@@ -78,9 +78,9 @@ export function PaymentForm({
             </button>
           ))}
       </div>
-      <div className="my-4 flex items-center justify-between rounded-md bg-workspace px-3 py-3 text-xs">
+      <div className="my-6 flex flex-wrap items-center justify-between gap-3 rounded-md bg-workspace p-4 text-lg">
         <span className="text-muted">Change to return</span>
-        <strong className="font-semibold tabular-nums">
+        <strong className="money-total">
           {preview.ok ? formatMoney(preview.change) : "—"}
         </strong>
       </div>
@@ -88,18 +88,18 @@ export function PaymentForm({
         <p
           role="alert"
           id="payment-error"
-          className="mb-3 flex items-start gap-2 rounded-md bg-red-50 p-3 text-xs leading-5 text-red-700"
+          className="mb-4 flex items-start gap-3 rounded-md border border-red-200 bg-red-50 p-4 text-lg leading-relaxed text-red-800"
         >
-          <TriangleAlert className="mt-0.5 shrink-0" size={15} />
+          <TriangleAlert className="mt-0.5 shrink-0" size={20} />
           {error}
         </p>
       )}
       <button type="submit" className="primary-button">
-        <Check size={16} />
+        <Check size={20} />
         Confirm Payment
       </button>
-      <p className="mt-3 flex items-center justify-center gap-1.5 text-xs text-muted">
-        <Banknote size={13} />
+      <p className="mt-3 flex items-center justify-center gap-1.5 text-lg text-muted">
+        <Banknote size={20} />
         Cash payment
       </p>
     </form>

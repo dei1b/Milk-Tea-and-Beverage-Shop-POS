@@ -44,44 +44,44 @@ export function ProductGrid({
       </div>
     );
   return (
-    <div className="product-grid grid gap-3.5">
+    <div className="product-grid grid gap-6">
       {products.map((product) => {
         const quantity =
           cart.find((item) => item.productId === product.id)?.quantity ?? 0;
         return (
           <article
             key={product.id}
-            className="product-card rounded-[10px] border border-line bg-white p-2.5"
+            className="product-card flex flex-col rounded-[10px] border border-line bg-white p-4"
           >
             <div className="relative overflow-hidden rounded-md">
               <DrinkImage
                 index={product.imageIndex}
                 className="aspect-[4/3] w-full"
               />
-              <span className="absolute right-2 top-2 flex items-center gap-1.5 rounded bg-white/95 px-2 py-1 text-[10px] font-medium text-ink">
+              <span className="absolute right-3 top-3 flex items-center gap-2 rounded bg-white px-3 py-1.5 text-lg font-medium text-ink">
                 <span className="h-1.5 w-1.5 rounded-full bg-success" />
                 Available
               </span>
             </div>
-            <div className="px-1 pb-1 pt-3">
-              <div className="flex min-h-10 items-start justify-between gap-2">
-                <h3 className="text-[13px] font-semibold leading-[1.4]">
+            <div className="flex flex-1 flex-col pt-4">
+              <div className="flex min-h-[104px] flex-col items-start justify-between gap-2">
+                <h3 className="text-2xl font-semibold leading-snug">
                   {product.shortName}
                 </h3>
-                <span className="shrink-0 text-[13px] font-semibold tabular-nums">
+                <span className="text-xl font-semibold tabular-nums">
                   {formatMoney(product.price)}
                 </span>
               </div>
-              <p className="mb-3 text-xs text-muted">
+              <p className="mb-5 mt-2 text-lg text-muted">
                 {product.category === "Water" ? "Bottled" : "Regular"}
               </p>
               <button
                 disabled={locked}
                 onClick={() => onAdd(product.id)}
                 aria-label={`Add ${product.name}`}
-                className={`flex h-9 w-full items-center justify-center gap-2 rounded-md border text-xs font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-45 ${quantity ? "border-line bg-white text-navy hover:bg-workspace" : "border-navy bg-navy text-white hover:bg-navy-hover"}`}
+                className={`mt-auto flex min-h-14 w-full items-center justify-center gap-3 rounded-md border px-4 py-3 text-lg font-semibold transition-colors disabled:cursor-not-allowed disabled:border-line disabled:bg-slate-100 disabled:text-slate-600 ${quantity ? "border-slate-400 bg-white text-navy hover:bg-workspace" : "border-navy bg-navy text-white hover:bg-navy-hover"}`}
               >
-                <Plus size={14} />
+                <Plus size={20} />
                 {quantity ? `Add more (${quantity})` : "Add to order"}
               </button>
             </div>

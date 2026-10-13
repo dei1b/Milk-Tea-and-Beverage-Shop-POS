@@ -112,27 +112,25 @@ export function POS() {
       <a href="#catalog" className="skip-link">
         Skip to drink menu
       </a>
-      <aside className="nav-rail flex flex-col border-r border-line bg-white">
+      <aside className="nav-rail border-line bg-white">
         <div className="flex items-center gap-2.5 px-4 py-6">
           <BrandMark />
           <div>
-            <p className="whitespace-nowrap text-base font-bold tracking-[-0.6px]">
+            <p className="whitespace-nowrap text-2xl font-bold tracking-tight">
               steep & sip<span className="text-success">.</span>
             </p>
-            <p className="mt-0.5 text-[10px] text-muted">
-              A little cup of happy
-            </p>
+            <p className="mt-0.5 text-lg text-muted">A little cup of happy</p>
           </div>
         </div>
         <div className="px-3 pt-5">
-          <p className="mb-3 px-2 text-xs text-muted">Workspace</p>
+          <p className="mb-3 px-2 text-lg text-muted">Workspace</p>
           <nav aria-label="Main navigation" className="space-y-1.5">
             <a
               href="#catalog"
               aria-current={sale.stage !== "complete" ? "page" : undefined}
               className={`rail-link ${sale.stage !== "complete" ? "active" : ""}`}
             >
-              <LayoutGrid size={16} />
+              <LayoutGrid size={20} />
               New sale
             </a>
             <a
@@ -140,19 +138,17 @@ export function POS() {
               aria-current={sale.stage === "complete" ? "page" : undefined}
               className={`rail-link ${sale.stage === "complete" ? "active" : ""}`}
             >
-              <ReceiptText size={16} />
+              <ReceiptText size={20} />
               {sale.stage === "complete" ? "Receipt" : "Current order"}
-              {count > 0 && (
-                <span className="ml-auto text-[10px] opacity-80">{count}</span>
-              )}
+              {count > 0 && <span className="ml-auto text-lg">{count}</span>}
             </a>
           </nav>
         </div>
         <div className="mt-auto px-4 pb-5">
           <div className="mb-5 rounded-lg border border-line bg-workspace p-3">
-            <Banknote size={19} className="mb-2 text-muted" />
-            <p className="text-xs font-medium">Keep it simple.</p>
-            <p className="mt-1 text-xs leading-4 text-muted">
+            <Banknote size={20} className="mb-2 text-muted" />
+            <p className="text-lg font-medium">Keep it simple.</p>
+            <p className="mt-1 text-lg leading-relaxed text-muted">
               Good drinks.
               <br />
               Quick cash checkout.
@@ -160,85 +156,87 @@ export function POS() {
           </div>
           <button
             onClick={() => setHelpOpen(true)}
-            className="flex min-h-9 w-full items-center gap-2 rounded-md px-1 text-xs text-muted hover:bg-workspace"
+            className="flex min-h-12 w-full items-center gap-2 rounded-md px-1 text-lg text-muted hover:bg-workspace"
           >
-            <CircleHelp size={16} />
+            <CircleHelp size={20} />
             Quick guide
           </button>
           <div className="mt-4 flex items-center gap-2 border-t border-line pt-4">
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-workspace text-xs font-semibold">
+            <span className="grid h-8 w-8 place-items-center rounded-full bg-workspace text-lg font-semibold">
               C
             </span>
             <div>
-              <p className="text-xs font-medium">Cashier</p>
-              <p className="text-[10px] text-muted">Campus counter</p>
+              <p className="text-lg font-medium">Cashier</p>
+              <p className="text-lg text-muted">Campus counter</p>
             </div>
           </div>
         </div>
       </aside>
       <div className="main-shell min-w-0">
-        <header className="global-header flex h-[68px] items-center justify-between gap-3 border-b border-line bg-white px-6">
-          <div className="flex items-center gap-2.5">
-            <Store size={18} className="text-muted" />
-            <span className="text-sm font-semibold">Campus counter</span>
-            <span className="ml-2 flex items-center gap-1.5 rounded-md border border-line px-2 py-1 text-[10px] text-muted">
+        <header className="global-header flex min-h-24 flex-wrap items-center justify-between gap-4 border-b border-line bg-white px-4 py-4 sm:px-6">
+          <div className="flex flex-wrap items-center gap-3">
+            <Store size={20} className="text-muted" />
+            <span className="text-lg font-semibold">Campus counter</span>
+            <span className="ml-2 flex items-center gap-1.5 rounded-md border border-line px-2 py-1 text-lg text-muted">
               <span className="h-1.5 w-1.5 rounded-full bg-success" />
               Open
             </span>
           </div>
-          <div className="flex items-center gap-4">
-            <span className="header-date text-xs text-muted">{date}</span>
-            <span className="rounded-md border border-line px-2.5 py-1.5 text-xs text-muted">
+          <div className="flex flex-wrap items-center gap-4">
+            <span className="header-date hidden text-lg text-muted sm:inline">
+              {date}
+            </span>
+            <span className="rounded-md border border-line px-2.5 py-1.5 text-lg text-muted">
               Cash register
             </span>
           </div>
         </header>
-        <main className="px-6 pb-6 pt-6">
-          <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+        <main className="p-4 sm:p-6 lg:p-8">
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-5">
             <div>
-              <div className="mb-2 flex items-center gap-1.5 text-xs text-muted">
+              <div className="mb-2 flex items-center gap-1.5 text-lg text-muted">
                 <span>Workspace</span>
-                <ChevronRight size={12} />
+                <ChevronRight size={20} />
                 <span className="text-ink">New sale</span>
               </div>
-              <h1 className="text-[25px] font-semibold tracking-[-0.8px]">
+              <h1 className="text-[32px] font-semibold leading-tight tracking-tight">
                 New sale
               </h1>
-              <p className="mt-1.5 text-xs text-muted">
+              <p className="mt-1.5 text-lg text-muted">
                 Choose a drink, review the order, and take payment.
               </p>
             </div>
-            <div className="flex items-center gap-2 rounded-md border border-line bg-white px-3 py-2 text-xs text-muted">
-              <Coffee size={14} />
+            <div className="flex items-center gap-2 rounded-md border border-line bg-white px-3 py-2 text-lg text-muted">
+              <Coffee size={20} />
               <span>6 drinks available</span>
             </div>
           </div>
-          <div className="workspace-layout grid items-start gap-5">
+          <div className="workspace-layout grid items-start gap-6">
             <section
               id="catalog"
               className="min-w-0 scroll-mt-4"
               aria-labelledby="catalog-title"
             >
-              <div className="mb-4 flex items-center justify-between">
+              <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
                 <h2
                   id="catalog-title"
                   ref={catalogHeading}
                   tabIndex={-1}
-                  className="flex items-center gap-2 text-base font-semibold tracking-tight"
+                  className="flex items-center gap-3 text-2xl font-semibold leading-snug tracking-tight"
                 >
-                  <CupSoda size={18} strokeWidth={1.7} />
+                  <CupSoda size={20} strokeWidth={1.7} />
                   Drink menu{" "}
-                  <span className="ml-1 rounded bg-slate-200/60 px-1.5 py-0.5 text-[10px] font-medium text-muted">
+                  <span className="ml-1 rounded bg-slate-200/60 px-1.5 py-0.5 text-lg font-medium text-muted">
                     6
                   </span>
                 </h2>
-                <span className="text-xs text-muted">
+                <span className="text-lg text-muted">
                   Select a drink to add
                 </span>
               </div>
-              <div className="catalog-toolbar mb-4 flex flex-wrap items-center justify-between gap-3">
+              <div className="catalog-toolbar mb-6 flex flex-wrap items-center justify-between gap-4">
                 <div
-                  className="flex flex-wrap gap-1.5"
+                  className="flex flex-wrap gap-3"
                   role="group"
                   aria-label="Filter products by category"
                 >
@@ -249,11 +247,11 @@ export function POS() {
                       key={value}
                       onClick={() => setCategory(value)}
                       aria-pressed={category === value}
-                      className={`category-chip flex items-center gap-2 rounded-md border px-2.5 py-2 text-xs font-medium ${category === value ? "border-navy bg-navy text-white" : "border-line bg-white text-muted hover:bg-slate-100"}`}
+                      className={`category-chip flex min-h-14 items-center gap-3 rounded-md border px-4 py-3 text-lg font-medium ${category === value ? "border-navy bg-navy text-white" : "border-slate-400 bg-white text-muted hover:bg-slate-100"}`}
                     >
                       {value}
                       <span
-                        className={`rounded px-1 text-[9px] ${category === value ? "bg-white/15" : "bg-workspace"}`}
+                        className={`rounded px-2 text-lg ${category === value ? "bg-white/15" : "bg-workspace"}`}
                       >
                         {value === "All drinks"
                           ? products.length
@@ -262,10 +260,10 @@ export function POS() {
                     </button>
                   ))}
                 </div>
-                <div className="relative min-w-36 flex-1 sm:max-w-48">
+                <div className="relative w-full min-w-0">
                   <Search
-                    size={14}
-                    className="pointer-events-none absolute left-2.5 top-2.5 text-muted"
+                    size={20}
+                    className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-muted"
                   />
                   <input
                     aria-label="Search drinks"
@@ -273,22 +271,22 @@ export function POS() {
                     value={search}
                     onChange={(event) => setSearch(event.target.value)}
                     placeholder="Search drinks..."
-                    className="h-9 w-full rounded-md border border-line bg-white pl-8 pr-2 text-xs"
+                    className="min-h-14 w-full rounded-md border border-slate-400 bg-white py-3 pl-12 pr-4 text-lg placeholder:text-slate-500"
                   />
                 </div>
               </div>
               {sale.stage === "review" && (
-                <div className="mb-4 flex items-center gap-2 rounded-md border border-line bg-white p-3 text-xs text-muted">
-                  <ListChecks size={15} />
+                <div className="mb-4 flex items-center gap-2 rounded-md border border-line bg-white p-3 text-lg text-muted">
+                  <ListChecks size={20} />
                   Reviewing your order. Select Edit Order to make changes.
                 </div>
               )}
               {sale.stage === "complete" && (
                 <div
                   role="status"
-                  className="mb-4 flex items-center gap-2 rounded-md border border-green-200 bg-green-50 p-3 text-xs text-green-800"
+                  className="mb-4 flex items-center gap-2 rounded-md border border-green-200 bg-green-50 p-3 text-lg text-green-800"
                 >
-                  <ReceiptText size={15} />
+                  <ReceiptText size={20} />
                   Sale complete. Start a new transaction for the next customer.
                 </div>
               )}
@@ -298,7 +296,7 @@ export function POS() {
                 locked={sale.stage !== "order"}
                 onAdd={(productId) => dispatch({ type: "add", productId })}
               />
-              <div className="mt-5 flex items-center justify-between gap-3 border-t border-line pt-4 text-xs text-muted">
+              <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-line pt-5 text-lg text-muted">
                 <span>{visibleProducts.length} of 6 drinks</span>
                 <span className="flex items-center gap-1.5">
                   <span className="h-1.5 w-1.5 rounded-full bg-success" />
@@ -309,27 +307,27 @@ export function POS() {
             <aside
               id="order-summary"
               aria-labelledby="order-title"
-              className="summary-panel sticky top-5 flex min-h-[640px] scroll-mt-4 flex-col overflow-hidden rounded-[10px] border border-line bg-white"
+              className="summary-panel flex min-h-[640px] min-w-0 scroll-mt-6 flex-col overflow-hidden rounded-[10px] border border-line bg-white xl:sticky xl:top-6"
             >
-              <div className="flex items-center justify-between gap-3 border-b border-line px-4 py-4">
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line p-4 sm:p-5">
                 <h2
                   id="order-title"
                   ref={reviewHeading}
-                  className="flex items-center gap-2 text-sm font-semibold"
+                  className="flex items-center gap-3 text-2xl font-semibold leading-snug"
                 >
-                  <ShoppingBag size={17} strokeWidth={1.7} />
+                  <ShoppingBag size={20} strokeWidth={1.7} />
                   {sale.stage === "complete"
                     ? "Digital receipt"
                     : sale.stage === "review"
                       ? "Review order"
                       : "Order summary"}
                 </h2>
-                <span className="rounded bg-workspace px-2 py-1 text-[10px] text-muted">
+                <span className="rounded bg-workspace px-2 py-1 text-lg text-muted">
                   {sale.completed?.reference ?? "New sale"}
                 </span>
               </div>
               <div
-                className="flex border-b border-line px-4 py-3 text-[10px]"
+                className="flex flex-wrap gap-y-3 border-b border-line px-4 py-4 text-lg sm:px-5"
                 aria-label="Transaction progress"
               >
                 {["Order", "Payment", "Receipt"].map((step, index) => {
@@ -339,18 +337,18 @@ export function POS() {
                   return (
                     <div
                       key={step}
-                      className={`flex flex-1 items-center gap-1.5 ${current >= index ? "font-medium text-navy" : "text-muted"}`}
+                      className={`flex flex-1 items-center gap-2 ${current >= index ? "font-medium text-navy" : "text-muted"}`}
                     >
                       <span
-                        className={`grid h-4 w-4 place-items-center rounded-full text-[9px] ${current >= index ? "bg-navy text-white" : "bg-workspace"}`}
+                        className={`grid h-8 w-8 shrink-0 place-items-center rounded-full text-lg ${current >= index ? "bg-navy text-white" : "bg-workspace"}`}
                       >
                         {index + 1}
                       </span>
                       {step}
                       {index < 2 && (
                         <ChevronRight
-                          size={11}
-                          className="ml-auto mr-2 text-slate-300"
+                          size={20}
+                          className="ml-auto mr-2 hidden shrink-0 text-muted sm:block"
                         />
                       )}
                     </div>
@@ -371,9 +369,9 @@ export function POS() {
                       dispatch({ type: "remove", productId })
                     }
                   />
-                  <div className="mt-auto border-t border-line p-4">
-                    <dl className="space-y-3 text-xs">
-                      <div className="flex justify-between">
+                  <div className="mt-auto border-t border-line p-4 sm:p-5">
+                    <dl className="space-y-4 text-lg">
+                      <div className="flex flex-wrap justify-between gap-3">
                         <dt className="text-muted">
                           Subtotal{" "}
                           <span>
@@ -382,19 +380,16 @@ export function POS() {
                         </dt>
                         <dd className="tabular-nums">{formatMoney(total)}</dd>
                       </div>
-                      <div className="flex justify-between">
+                      <div className="flex flex-wrap justify-between gap-3">
                         <dt className="text-muted">Payment method</dt>
                         <dd className="flex items-center gap-1.5">
-                          <Banknote size={13} />
+                          <Banknote size={20} />
                           Cash
                         </dd>
                       </div>
-                      <div className="flex items-center justify-between border-t border-line pt-3">
-                        <dt className="text-sm font-semibold">Total amount</dt>
-                        <dd
-                          className="text-[23px] font-semibold tracking-tight tabular-nums"
-                          data-testid="order-total"
-                        >
+                      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-line pt-5">
+                        <dt className="text-lg font-semibold">Total amount</dt>
+                        <dd className="money-total" data-testid="order-total">
                           {formatMoney(total)}
                         </dd>
                       </div>
@@ -407,19 +402,19 @@ export function POS() {
                           className="primary-button"
                         >
                           Review Order
-                          <ArrowRight size={16} />
+                          <ArrowRight size={20} />
                         </button>
-                        <p className="mt-3 text-center text-[10px] text-muted">
+                        <p className="mt-3 text-center text-lg text-muted">
                           Double-check the order before taking payment.
                         </p>
                       </div>
                     ) : (
                       <>
                         <button
-                          className="mt-4 flex min-h-8 items-center gap-1.5 rounded text-xs text-muted hover:text-ink"
+                          className="mt-5 flex min-h-12 items-center gap-3 rounded px-3 py-2 text-lg font-medium text-muted hover:bg-workspace hover:text-ink"
                           onClick={() => dispatch({ type: "edit" })}
                         >
-                          <ArrowLeft size={13} />
+                          <ArrowLeft size={20} />
                           Edit Order
                         </button>
                         <PaymentForm
@@ -445,7 +440,7 @@ export function POS() {
               )}
             </aside>
           </div>
-          <footer className="mt-6 flex justify-between gap-3 text-[10px] text-muted">
+          <footer className="mt-8 flex flex-wrap justify-between gap-4 text-lg text-muted">
             <span>steep & sip. / Campus counter</span>
             <span>Cash payments</span>
           </footer>
@@ -458,16 +453,16 @@ export function POS() {
         className="help-dialog rounded-xl border border-line bg-white p-6 text-ink"
       >
         <div className="mb-4 flex items-center justify-between gap-5">
-          <h2 className="text-lg font-semibold">A quick guide</h2>
+          <h2 className="text-2xl font-semibold leading-snug">A quick guide</h2>
           <button
             aria-label="Close quick guide"
             onClick={() => setHelpOpen(false)}
-            className="grid h-8 w-8 place-items-center rounded hover:bg-workspace"
+            className="grid h-12 w-12 shrink-0 place-items-center rounded hover:bg-workspace"
           >
-            <X size={17} />
+            <X size={20} />
           </button>
         </div>
-        <ol className="list-decimal space-y-3 pl-5 text-sm leading-6 text-muted">
+        <ol className="list-decimal space-y-3 pl-5 text-lg leading-relaxed text-muted">
           <li>Add drinks and adjust quantities in the order summary.</li>
           <li>
             Select Review Order. Use Edit Order if anything needs changing.
@@ -478,7 +473,7 @@ export function POS() {
             customer.
           </li>
         </ol>
-        <p className="mt-5 border-t border-line pt-4 text-xs leading-5 text-muted">
+        <p className="mt-5 border-t border-line pt-4 text-lg leading-relaxed text-muted">
           You can use Tab and Shift+Tab to move through controls, and Enter or
           Space to select buttons. Refreshing the page clears the current sale.
         </p>
